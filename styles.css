@@ -1,59 +1,76 @@
-/* Custom CSS for Universidad Tres Culturas Website */
+/* Custom CSS para CPD Website */
 
 :root {
-    --bs-primary: #6610f2;
-    --bs-primary-rgb: 102, 16, 242;
+    --bs-primary: #4a7bc8;
+    --bs-primary-rgb: 74, 123, 200;
+    --primary-light: #6b9bd9;
+    --primary-dark: #2c5aa0;
 }
 
 .btn-primary {
-    background-color: #6610f2;
-    border-color: #6610f2;
+    background-color: #4a7bc8;
+    border-color: #4a7bc8;
 }
 
 .btn-primary:hover {
-    background-color: #5a0ed6;
-    border-color: #5409c4;
+    background-color: #2c5aa0;
+    border-color: #1e3f73;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-    background-color: #5a0ed6;
-    border-color: #5409c4;
-    box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.5);
+    background-color: #2c5aa0;
+    border-color: #1a3861;
+    box-shadow: 0 0 0 0.2rem rgba(74, 123, 200, 0.5);
 }
 
 .btn-outline-primary {
-    color: #6610f2;
-    border-color: #6610f2;
+    color: #4a7bc8;
+    border-color: #4a7bc8;
 }
 
 .btn-outline-primary:hover {
-    background-color: #6610f2;
-    border-color: #6610f2;
+    background-color: #4a7bc8;
+    border-color: #4a7bc8;
     color: #fff;
 }
 
 .bg-primary {
-    background-color: #6610f2 !important;
+    background-color: #4a7bc8 !important;
 }
 
 .text-primary {
-    color: #6610f2 !important;
+    color: #4a7bc8 !important;
 }
 
 .border-primary {
-    border-color: #6610f2 !important;
+    border-color: #4a7bc8 !important;
 }
 
 .progress-bar {
-    background-color: #6610f2;
+    background-color: #4a7bc8;
 }
 
 .badge.bg-primary {
-    background-color: #6610f2 !important;
+    background-color: #4a7bc8 !important;
 }
 
 .alert-primary {
-    color: #3f0a7a;
-    background-color: #e7d6fd;
-    border-color: #d3b8fb;
+    color: #1a3861;
+    background-color: #d1deef;
+    border-color: #b3cde6;
+}
+
+/* Header Gradient Styles */
+header.bg-primary {
+    background: linear-gradient(to right, var(--primary-light), var(--primary-dark)) !important;
+}
+
+/* Ensure buttons in header maintain proper contrast */
+header .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+header .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
 }

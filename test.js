@@ -1,4 +1,4 @@
-// Test Vocacional JavaScript - Universidad Tres Culturas
+// Test Vocacional JavaScript - CPD
 
 // Test data structure
 const testQuestions = [

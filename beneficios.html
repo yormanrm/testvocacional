@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficios - CPD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header con Logo -->
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-8 col-sm-8 col-md-6">
+                    <div class="d-flex align-items-center">
+                        <img src="logo.png" alt="CPD Logo" class="me-2 me-sm-3" style="height: 40px; width: auto;">
+                        <div>
+                            <h1 class="h5 h-sm-4 h-md-3 mb-0">CPD</h1>
+                            <small class="opacity-75 d-none d-sm-block">Conocete, proyectate y decide</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-sm-4 col-md-6 text-end">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="navDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list"></i> <span class="d-none d-sm-inline">Menú</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="navDropdown">
+                            <li><a class="dropdown-item" href="index.html">Inicio</a></li>
+                            <li><a class="dropdown-item" href="acerca.html">Acerca de Nosotros</a></li>
+                            <li><a class="dropdown-item active" href="beneficios.html">Beneficios</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="test.html"><i class="bi bi-clipboard-data me-2"></i>Tomar Test</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-light py-4 py-sm-5">
+        <div class="container">
+            <div class="text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="display-6 fw-bold mb-3">Beneficios del Test Vocacional</h2>
+                        <p class="lead text-muted">
+                            Descubre cómo nuestra herramienta beneficia tanto a estudiantes como a instituciones educativas
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs de Beneficios -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Nav Tabs -->
+            <ul class="nav nav-pills nav-fill mb-4" id="beneficiosTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="estudiantes-tab" data-bs-toggle="pill" data-bs-target="#estudiantes" type="button" role="tab" aria-controls="estudiantes" aria-selected="true">
+                        <i class="bi bi-people me-2"></i>Para Estudiantes
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="escuelas-tab" data-bs-toggle="pill" data-bs-target="#escuelas" type="button" role="tab" aria-controls="escuelas" aria-selected="false">
+                        <i class="bi bi-building me-2"></i>Para Escuelas
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="beneficiosTabContent">
+                <!-- Beneficios para Estudiantes -->
+                <div class="tab-pane fade show active" id="estudiantes" role="tabpanel" aria-labelledby="estudiantes-tab">
+                    <div class="row g-4">
+                        <!-- Autoconocimiento -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-primary bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-person-heart fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Autoconocimiento</h5>
+                                    <p class="card-text text-muted">
+                                        Descubren sus intereses, habilidades y fortalezas personales de manera clara y objetiva.
+                                    </p>
+                                    <!-- Collapse Button -->
+                                    <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAutoconocimiento" aria-expanded="false" aria-controls="collapseAutoconocimiento">
+                                        Ver más detalles
+                                    </button>
+                                    <!-- Collapse Content -->
+                                    <div class="collapse mt-3" id="collapseAutoconocimiento">
+                                        <div class="card card-body border-primary">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Identificación de aptitudes naturales</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Reconocimiento de intereses profesionales</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Claridad sobre fortalezas personales</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Decisiones Seguras -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-success bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-shield-check fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Decisiones Seguras</h5>
+                                    <p class="card-text text-muted">
+                                        Les brinda claridad para elegir carrera o área de estudio con mayor confianza.
+                                    </p>
+                                    <button class="btn btn-outline-success btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDecisiones" aria-expanded="false" aria-controls="collapseDecisiones">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseDecisiones">
+                                        <div class="card card-body border-success">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Reduce la incertidumbre vocacional</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Proporciona base científica para decidir</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Minimiza cambios de carrera</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Accesibilidad -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-info bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-globe fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Accesibilidad</h5>
+                                    <p class="card-text text-muted">
+                                        Disponible en línea, fácil de usar desde cualquier dispositivo con conexión a internet.
+                                    </p>
+                                    <button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccesibilidad" aria-expanded="false" aria-controls="collapseAccesibilidad">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseAccesibilidad">
+                                        <div class="card card-body border-info">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Compatible con móviles y tablets</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Disponible 24/7</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Sin necesidad de descargas</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Confianza en su Futuro -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-danger bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-heart-fill fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Confianza en su Futuro</h5>
+                                    <p class="card-text text-muted">
+                                        Reduce la incertidumbre y la presión al elegir su trayectoria académica y profesional.
+                                    </p>
+                                    <button class="btn btn-outline-danger btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConfianza" aria-expanded="false" aria-controls="collapseConfianza">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseConfianza">
+                                        <div class="card card-body border-danger">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Mayor seguridad personal</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Reducción del estrés vocacional</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Motivación hacia el futuro</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Resultados Inmediatos -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-warning bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-lightning-charge fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Resultados Inmediatos</h5>
+                                    <p class="card-text text-muted">
+                                        Obtienen un perfil vocacional claro y práctico al finalizar el test.
+                                    </p>
+                                    <button class="btn btn-outline-warning btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResultados" aria-expanded="false" aria-controls="collapseResultados">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseResultados">
+                                        <div class="card card-body border-warning">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Reporte personalizado</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Recomendaciones de carrera</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Orientación para siguientes pasos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Beneficios para Escuelas -->
+                <div class="tab-pane fade" id="escuelas" role="tabpanel" aria-labelledby="escuelas-tab">
+                    <div class="row g-4">
+                        <!-- Herramienta de Apoyo -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-primary bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-tools fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Herramienta de Apoyo</h5>
+                                    <p class="card-text text-muted">
+                                        Facilita el trabajo de orientadores y docentes en el proceso de orientación vocacional.
+                                    </p>
+                                    <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHerramienta" aria-expanded="false" aria-controls="collapseHerramienta">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseHerramienta">
+                                        <div class="card card-body border-primary">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Complementa la labor docente</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Datos objetivos para orientación</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Ahorra tiempo en evaluaciones</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Refuerzo Educativo -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-success bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-mortarboard fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Refuerzo Educativo</h5>
+                                    <p class="card-text text-muted">
+                                        Complementa los programas de tutoría y orientación existentes en la institución.
+                                    </p>
+                                    <button class="btn btn-outline-success btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRefuerzo" aria-expanded="false" aria-controls="collapseRefuerzo">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseRefuerzo">
+                                        <div class="card card-body border-success">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Integrable con currículum</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Fortalece programas existentes</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Mejora resultados educativos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Implementación Sencilla -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-info bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-gear fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Implementación Sencilla</h5>
+                                    <p class="card-text text-muted">
+                                        No requiere procesos complicados ni costosos para su implementación.
+                                    </p>
+                                    <button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImplementacion" aria-expanded="false" aria-controls="collapseImplementacion">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseImplementacion">
+                                        <div class="card card-body border-info">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Sin infraestructura adicional</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Capacitación mínima requerida</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Activación inmediata</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Accesible para Todos -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-warning bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-universal-access fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Accesible para Todos</h5>
+                                    <p class="card-text text-muted">
+                                        Diseñado para adaptarse a escuelas públicas y privadas por igual.
+                                    </p>
+                                    <button class="btn btn-outline-warning btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccesibleTodos" aria-expanded="false" aria-controls="collapseAccesibleTodos">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseAccesibleTodos">
+                                        <div class="card card-body border-warning">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Adaptable a cualquier institución</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Costo accesible</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Escalable según necesidades</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Acompañamiento Institucional -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-danger bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                        <i class="bi bi-people-fill fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="card-title">Acompañamiento Institucional</h5>
+                                    <p class="card-text text-muted">
+                                        Mejora la atención y seguimiento a los estudiantes en su proceso formativo.
+                                    </p>
+                                    <button class="btn btn-outline-danger btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAcompanamiento" aria-expanded="false" aria-controls="collapseAcompanamiento">
+                                        Ver más detalles
+                                    </button>
+                                    <div class="collapse mt-3" id="collapseAcompanamiento">
+                                        <div class="card card-body border-danger">
+                                            <ul class="list-unstyled mb-0 text-start">
+                                                <li><i class="bi bi-check text-success me-2"></i>Seguimiento personalizado</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Reportes institucionales</li>
+                                                <li><i class="bi bi-check text-success me-2"></i>Apoyo continuo</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-primary text-white py-5">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h3 class="mb-3">¿Listo para experimentar estos beneficios?</h3>
+                    <p class="lead mb-4">Descubre tu vocación y toma decisiones informadas sobre tu futuro</p>
+                    <a href="test.html" class="btn btn-light btn-lg">Comenzar Test Vocacional</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h6>CPD</h6>
+                    <p class="mb-0">© 2025 Orientación Vocacional Profesional</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
