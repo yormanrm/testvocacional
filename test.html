@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Vocacional - Universidad Tres Culturas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header con Logo -->
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-8 col-md-6">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-mortarboard-fill fs-2 fs-sm-1 me-2 me-sm-3"></i>
+                        <div>
+                            <a href="index.html" class="text-white text-decoration-none">
+                                <h1 class="h4 h-sm-3 mb-0">Universidad Tres Culturas</h1>
+                            </a>
+                            <small class="opacity-75 d-none d-sm-block">Orientación Vocacional Profesional</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-6 text-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i>Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Test Container -->
+    <div class="container py-4 py-sm-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-11 col-lg-8">
+                
+                <!-- Progress Bar -->
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="mb-0">Progreso del Test</h6>
+                        <small class="text-muted">Pregunta <span id="currentQuestion">1</span> de <span id="totalQuestions">15</span></small>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-primary" id="progressBar" role="progressbar" style="width: 6.67%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="15"></div>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="card shadow-sm mb-4" id="questionCard">
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <span class="badge bg-primary mb-2">Intereses Profesionales</span>
+                            <h4 class="card-title mb-3" id="questionText">¿Cuál de estas actividades te resulta más atractiva?</h4>
+                        </div>
+
+                        <div class="options-container">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="question" id="option1" value="A">
+                                <label class="form-check-label w-100 p-3 rounded border" for="option1">
+                                    <strong>Resolver problemas matemáticos complejos</strong>
+                                    <br><small class="text-muted">Trabajar con números, cálculos y análisis cuantitativos</small>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="question" id="option2" value="B">
+                                <label class="form-check-label w-100 p-3 rounded border" for="option2">
+                                    <strong>Ayudar a personas con problemas emocionales</strong>
+                                    <br><small class="text-muted">Brindar apoyo psicológico y orientación personal</small>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="question" id="option3" value="C">
+                                <label class="form-check-label w-100 p-3 rounded border" for="option3">
+                                    <strong>Crear diseños artísticos innovadores</strong>
+                                    <br><small class="text-muted">Desarrollar conceptos visuales y expresiones creativas</small>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="question" id="option4" value="D">
+                                <label class="form-check-label w-100 p-3 rounded border" for="option4">
+                                    <strong>Liderar un equipo de trabajo</strong>
+                                    <br><small class="text-muted">Dirigir proyectos y coordinar grupos de personas</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-outline-secondary" id="prevBtn" disabled>
+                        <i class="bi bi-arrow-left me-1"></i>Anterior
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn" disabled>
+                        Siguiente<i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                </div>
+
+                <!-- Test Instructions -->
+                <div class="alert alert-info mt-4">
+                    <div class="d-flex">
+                        <i class="bi bi-info-circle me-2 mt-1"></i>
+                        <div>
+                            <strong>Instrucciones:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Responde con honestidad, no hay respuestas correctas o incorrectas</li>
+                                <li>Elige la opción que más se acerque a tus preferencias naturales</li>
+                                <li>Si ninguna opción te convence completamente, elige la menos desagradable</li>
+                                <li>El test toma aproximadamente 10-15 minutos completarlo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Modal (Hidden initially) -->
+    <div class="modal fade" id="resultsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-trophy me-2"></i>¡Test Completado!
+                    </h5>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <div class="display-1 text-primary mb-3">🎯</div>
+                        <h4>Tus Resultados Vocacionales</h4>
+                        <p class="text-muted">Basado en tus respuestas, estas son las áreas profesionales más compatibles contigo:</p>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body text-center">
+                                    <div class="h2 text-primary mb-2">85%</div>
+                                    <h6 class="card-title">Ciencias Sociales</h6>
+                                    <small class="text-muted">Psicología, Trabajo Social, Pedagogía</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body text-center">
+                                    <div class="h2 text-success mb-2">78%</div>
+                                    <h6 class="card-title">Ciencias Exactas</h6>
+                                    <small class="text-muted">Matemáticas, Ingeniería, Física</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-warning">
+                                <div class="card-body text-center">
+                                    <div class="h2 text-warning mb-2">72%</div>
+                                    <h6 class="card-title">Artes y Diseño</h6>
+                                    <small class="text-muted">Diseño Gráfico, Arte, Arquitectura</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-info">
+                                <div class="card-body text-center">
+                                    <div class="h2 text-info mb-2">68%</div>
+                                    <h6 class="card-title">Administración</h6>
+                                    <small class="text-muted">Negocios, Gestión, Liderazgo</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-primary mt-4">
+                        <h6><i class="bi bi-lightbulb me-2"></i>Recomendación Principal:</h6>
+                        <p class="mb-0">Considera carreras en el área de <strong>Ciencias Sociales</strong>, especialmente aquellas que involucren trabajo directo con personas y desarrollo humano.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" onclick="restartTest()">Repetir Test</button>
+                    <a href="index.html" class="btn btn-primary">Volver al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h6>Universidad Tres Culturas</h6>
+                    <p class="mb-0">© 2025 Orientación Vocacional Profesional</p>
+                </div>
+                <div class="col-sm-12 col-md-6 text-center text-md-end">
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-end gap-2 gap-sm-3">
+                        <a href="#" class="text-white text-decoration-none">Política de Privacidad</a>
+                        <a href="#" class="text-white text-decoration-none">Metodología</a>
+                        <a href="#" class="text-white text-decoration-none">Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Test JavaScript -->
+    <script src="test.js"></script>
+</body>
+</html>

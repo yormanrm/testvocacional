@@ -1,0 +1,59 @@
+/* Custom CSS for Universidad Tres Culturas Website */
+
+:root {
+    --bs-primary: #6610f2;
+    --bs-primary-rgb: 102, 16, 242;
+}
+
+.btn-primary {
+    background-color: #6610f2;
+    border-color: #6610f2;
+}
+
+.btn-primary:hover {
+    background-color: #5a0ed6;
+    border-color: #5409c4;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    background-color: #5a0ed6;
+    border-color: #5409c4;
+    box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.5);
+}
+
+.btn-outline-primary {
+    color: #6610f2;
+    border-color: #6610f2;
+}
+
+.btn-outline-primary:hover {
+    background-color: #6610f2;
+    border-color: #6610f2;
+    color: #fff;
+}
+
+.bg-primary {
+    background-color: #6610f2 !important;
+}
+
+.text-primary {
+    color: #6610f2 !important;
+}
+
+.border-primary {
+    border-color: #6610f2 !important;
+}
+
+.progress-bar {
+    background-color: #6610f2;
+}
+
+.badge.bg-primary {
+    background-color: #6610f2 !important;
+}
+
+.alert-primary {
+    color: #3f0a7a;
+    background-color: #e7d6fd;
+    border-color: #d3b8fb;
+}
