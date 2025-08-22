@@ -68,7 +68,7 @@
                     <div class="card border-primary shadow-sm">
                         <div class="card-body p-4 p-sm-5">
                             <div class="text-center mb-4">
-                                <i class="bi bi-book display-3 text-primary mb-3"></i>
+                                <i id="secret-book" class="bi bi-book display-3 text-primary mb-3" style="cursor: pointer; transition: all 0.3s ease;"></i>
                                 <h4 class="text-primary">Fundamento Académico</h4>
                             </div>
                             <div class="row">
@@ -203,5 +203,56 @@
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <!-- Easter Egg Script -->
+    <script>
+        let clickCount = 0;
+        const secretBook = document.getElementById('secret-book');
+        
+        if (secretBook) {
+            secretBook.addEventListener('click', function(event) {
+                // Prevenir cualquier comportamiento por defecto
+                event.preventDefault();
+                event.stopPropagation();
+                
+                clickCount++;
+                
+                // Solo al quinto clic hacer el cambio al corazón y redirigir
+                if (clickCount === 5) {
+                    this.style.color = '#e056fd';
+                    this.classList.remove('bi-book');
+                    this.classList.add('bi-heart-fill');
+                    
+                    // Animación final
+                    this.style.transform = 'scale(1.5)';
+                    this.style.textShadow = '0 0 20px #e056fd';
+                    
+                    // Redirigir después de una pequeña pausa
+                    setTimeout(() => {
+                        window.location.href = 'sorpresa.html';
+                    }, 800);
+                } else {
+                    // Solo un pequeño efecto visual sin cambios
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                }
+            });
+            
+            // Agregar un efecto hover sutil para indicar que es clickeable
+            secretBook.addEventListener('mouseenter', function() {
+                if (clickCount === 0) {
+                    this.style.transform = 'scale(1.05)';
+                }
+            });
+            
+            secretBook.addEventListener('mouseleave', function() {
+                if (clickCount === 0) {
+                    this.style.transform = 'scale(1)';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

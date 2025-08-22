@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>💝 Sorpresa Especial</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Prevenir zoom en iOS */
+            -webkit-text-size-adjust: 100%;
+            /* Suavizar fonts en móvil */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Evitar selección de texto */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Mejorar touch en móviles */
+        button {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        body {
+            background: #8b5fbf;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+        }
+        
+        body::before {
+            background: linear-gradient(45deg, 
+                #764ba2, 
+                #f093fb, 
+                #f5576c);
+            animation: fadeInOut 8s ease-in-out infinite;
+        }
+        
+        body::after {
+            background: linear-gradient(135deg, 
+                #f093fb, 
+                #4facfe, 
+                #8b5fbf);
+            animation: fadeInOut 8s ease-in-out infinite 4s;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            25% { opacity: 0.7; }
+            50% { opacity: 1; }
+            75% { opacity: 0.7; }
+            100% { opacity: 0; }
+        }
+        
+        /* Optimizaciones adicionales para móviles */
+        .btn {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            /* Tamaño mínimo para touch */
+            min-height: 44px;
+            min-width: 120px;
+        }
+        
+        /* Mejoras específicas para móvil */
+        @media (max-width: 768px) {
+            .btn {
+                min-height: 48px;
+                min-width: 140px;
+                padding: 12px 24px !important;
+            }
+            
+            .card-body {
+                padding: 1rem !important;
+            }
+            
+            #escape-zone {
+                height: 100px !important;
+                margin: 10px 0 !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .btn {
+                min-height: 50px;
+                min-width: 150px;
+                font-size: 1.1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido principal centrado -->
+    <div class="d-flex align-items-center justify-content-center min-vh-100 px-3" style="position: relative; z-index: 1000;">
+        <div class="text-center w-100">
+            <div class="card bg-white shadow-lg border-0 mx-auto" style="max-width: 500px; border-radius: 20px; position: relative; z-index: 1001;">
+                <div class="card-body p-3 p-sm-4 p-md-5">
+                    <h1 class="h3 h-sm-2 h-md-1 mb-3 mb-sm-4" style="color: #8b5fbf; font-weight: bold; font-size: clamp(1.5rem, 4vw, 2.5rem);">
+                        💜 Una Pregunta Importante 💜
+                    </h1>
+                    
+                    <p class="lead mb-3 mb-sm-4" style="color: #5a3a7a; font-size: clamp(1rem, 3vw, 1.3rem); line-height: 1.4;">
+                        ¿Te gustaría formar una familia tradicional católica, panista y que vea telenovelas a las 4 conmigo?
+                    </p>
+                    
+                    <div id="botones-container" class="mb-3">
+                        <!-- Botón SÍ fijo -->
+                        <div class="d-flex justify-content-center mb-3">
+                            <button id="btn-si" class="btn btn-success btn-lg px-4 px-sm-5 py-2 py-sm-3" style="font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: bold; position: relative; z-index: 1002;">
+                                ¡SÍ! 💕
+                            </button>
+                        </div>
+                        
+                        <!-- Área de escape para el botón NO -->
+                        <div id="escape-zone" style="height: 100px; height: clamp(80px, 15vh, 120px); width: 100%; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <button id="btn-no" class="btn btn-danger btn-lg px-3 px-sm-4 py-2 py-sm-3" style="font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: bold; position: relative; z-index: 1002; transition: all 0.3s ease;">
+                                No 😅
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="mensaje-final" class="mt-3 mt-sm-4" style="display: none;">
+                        <h2 class="text-success h4 h-sm-3 h-md-2" style="font-size: clamp(1.2rem, 3.5vw, 2rem);">¡SABÍA QUE DIRÍAS QUE SÍ! 🎉💕</h2>
+                        <p class="lead" style="font-size: clamp(0.9rem, 2.5vw, 1.1rem);">¡Vamos a ver las telenovelas juntos! 📺💜</p>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary btn-sm btn-md-lg me-2 mb-2" onclick="showMoreHearts()" style="font-size: clamp(0.8rem, 2vw, 1rem);">
+                                ¡Más corazones! 💖
+                            </button>
+                            <button class="btn btn-primary btn-sm btn-md-lg mb-2" onclick="window.location.href='index.html'" style="font-size: clamp(0.8rem, 2vw, 1rem);">
+                                🏠 Regresar al Test
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <script>
+        // Detección mejorada de dispositivos móviles
+        const isMobile = () => {
+            return window.innerWidth <= 768 || 
+                   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                   ('ontouchstart' in window) ||
+                   (navigator.maxTouchPoints > 0);
+        };
+        
+        // Función para crear corazones flotantes
+        function createFloatingHeart() {
+            const hearts = ['💖', '💜', '💗', '💕', '🩷', '💙'];
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            
+            // Tamaño responsive basado en el ancho de pantalla
+            const mobile = isMobile();
+            const minSize = mobile ? 20 : 30;
+            const maxSize = mobile ? 40 : 65;
+            heart.style.fontSize = (Math.random() * (maxSize - minSize) + minSize) + 'px';
+            
+            heart.style.zIndex = '9999';
+            heart.style.pointerEvents = 'none';
+            heart.style.animation = 'floatUp 4s linear forwards';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 4000);
+        }
+        
+        // Función para crear flores flotantes
+        function createFloatingFlower() {
+            const flowers = ['🌹', '🌷', '🌺', '🌸', '🌻', '🌼', '💐', '🏵️'];
+            const flower = document.createElement('div');
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.position = 'fixed';
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            flower.style.top = window.innerHeight + 'px';
+            
+            // Tamaño responsive basado en el ancho de pantalla
+            const mobile = isMobile();
+            const minSize = mobile ? 18 : 25;
+            const maxSize = mobile ? 35 : 55;
+            flower.style.fontSize = (Math.random() * (maxSize - minSize) + minSize) + 'px';
+            
+            flower.style.zIndex = '9999';
+            flower.style.pointerEvents = 'none';
+            flower.style.animation = 'floatUpFlower 5s linear forwards';
+            
+            document.body.appendChild(flower);
+            
+            setTimeout(() => {
+                if (flower.parentNode) {
+                    flower.parentNode.removeChild(flower);
+                }
+            }, 5000);
+        }
+        
+        // Crear animación CSS para los corazones y flores flotantes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-110vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes floatUpFlower {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-110vh) rotate(-360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Crear corazones y flores automáticamente
+        function startHeartRain() {
+            createFloatingHeart();
+            setTimeout(startHeartRain, Math.random() * 1200 + 800); // Entre 0.8 y 2 segundos
+        }
+        
+        function startFlowerRain() {
+            createFloatingFlower();
+            setTimeout(startFlowerRain, Math.random() * 1500 + 1000); // Entre 1 y 2.5 segundos
+        }
+        
+        // Crear múltiples elementos al inicio
+        function startMultipleElements() {
+            for (let i = 0; i < 2; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, i * 300);
+            }
+            for (let i = 0; i < 2; i++) {
+                setTimeout(() => {
+                    createFloatingFlower();
+                }, i * 400 + 150);
+            }
+        }
+        
+        // Iniciar la lluvia de corazones y flores después de 1 segundo
+        setTimeout(() => {
+            startMultipleElements();
+            startHeartRain();
+            startFlowerRain();
+        }, 1000);
+        
+        // Lógica de los botones
+        const btnSi = document.getElementById('btn-si');
+        const btnNo = document.getElementById('btn-no');
+        const mensajeFinal = document.getElementById('mensaje-final');
+        const card = document.querySelector('.card');
+        
+        let intentos = 0;
+        
+        // Botón SÍ
+        btnSi.addEventListener('click', function() {
+            // Ocultar botones
+            btnSi.style.display = 'none';
+            btnNo.style.display = 'none';
+            
+            // Mostrar mensaje final
+            mensajeFinal.style.display = 'block';
+            
+            // Explosión de corazones
+            showMoreHearts();
+            setTimeout(() => showMoreHearts(), 500);
+            setTimeout(() => showMoreHearts(), 1000);
+        });
+        
+        // Botón NO - se escapa
+        btnNo.addEventListener('click', function(e) {
+            e.preventDefault();
+            intentos++;
+            
+            // Después de 7 intentos, desaparecer y hacer brillar el botón SÍ
+            if (intentos >= 7) {
+                // Desaparecer el botón NO
+                this.style.opacity = '0';
+                this.style.transform = 'scale(0)';
+                
+                setTimeout(() => {
+                    this.style.display = 'none';
+                }, 300);
+                
+                // Hacer brillar el botón SÍ
+                btnSi.style.animation = 'brillar 1s ease-in-out infinite';
+                btnSi.style.boxShadow = '0 0 20px #198754, 0 0 40px #198754, 0 0 60px #198754';
+                
+                // Agregar la animación CSS
+                const brilloStyle = document.createElement('style');
+                brilloStyle.textContent = `
+                    @keyframes brillar {
+                        0% { 
+                            transform: scale(1);
+                            box-shadow: 0 0 20px #198754, 0 0 40px #198754, 0 0 60px #198754;
+                        }
+                        50% { 
+                            transform: scale(1.1);
+                            box-shadow: 0 0 30px #198754, 0 0 60px #198754, 0 0 90px #198754;
+                        }
+                        100% { 
+                            transform: scale(1);
+                            box-shadow: 0 0 20px #198754, 0 0 40px #198754, 0 0 60px #198754;
+                        }
+                    }
+                `;
+                document.head.appendChild(brilloStyle);
+                
+                return; // No continuar con el resto de la lógica
+            }
+            
+            // Hacer el botón absoluto la primera vez que se hace clic
+            if (intentos === 1) {
+                this.style.position = 'absolute';
+            }
+            
+            // Posiciones aleatorias dentro del área de escape
+            const escapeZone = document.getElementById('escape-zone');
+            
+            // Dimensiones del área de escape con márgenes responsivos
+            const mobile = isMobile();
+            const margin = mobile ? 10 : 20;
+            
+            const maxX = escapeZone.offsetWidth - this.offsetWidth - margin;
+            const maxY = escapeZone.offsetHeight - this.offsetHeight - margin;
+            
+            const newX = Math.random() * Math.max(0, maxX) + (margin / 2);
+            const newY = Math.random() * Math.max(0, maxY) + (margin / 2);
+            
+            this.style.left = newX + 'px';
+            this.style.top = newY + 'px';
+            
+            // Cambiar el texto del botón según los intentos
+            if (intentos === 1) {
+                this.textContent = '¿No? 🤔';
+            } else if (intentos === 2) {
+                this.textContent = '¿En serio? 😏';
+            } else if (intentos === 3) {
+                this.textContent = '¡Vamos! 😉';
+            } else if (intentos === 4) {
+                this.textContent = 'Ni por Narey 🐼';
+            } else if (intentos === 5) {
+                this.textContent = 'Por nuestro querido Rocky 🐶';
+            } else if (intentos === 6) {
+                this.textContent = '¿Las telenovelas no? 📺';
+            }
+            
+            // Hacer el botón más pequeño cada vez (ajustado para 7 intentos)
+            const newSize = Math.max(0.6, 1 - (intentos * 0.04));
+            this.style.transform = `scale(${newSize})`;
+            
+            // Animación de "escape"
+            this.style.backgroundColor = '#dc3545';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 200);
+        });
+        
+        // Función para mostrar más corazones y flores (por si quieres usarla después)
+        function showMoreHearts() {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, i * 100);
+            }
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createFloatingFlower();
+                }, i * 150 + 50);
+            }
+        }
+        
+        // Optimizaciones adicionales para móviles
+        if (isMobile()) {
+            // Prevenir zoom en doble tap para iOS
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function (event) {
+                const now = (new Date()).getTime();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+            
+            // Optimizar performance en móviles
+            document.body.style.webkitOptimizeSpeed = 'optimizeSpeed';
+        }
+        
+        // Manejar cambios de orientación
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+    </script>
+</body>
+</html>
