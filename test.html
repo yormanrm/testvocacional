@@ -36,6 +36,7 @@
                             <li><a class="dropdown-item" href="index.html">Inicio</a></li>
                             <li><a class="dropdown-item" href="acerca.html">Acerca de Nosotros</a></li>
                             <li><a class="dropdown-item" href="beneficios.html">Beneficios</a></li>
+                            <li><a class="dropdown-item" href="metodologia.html">Metodología</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item active" href="test.html"><i class="bi bi-clipboard-data me-2"></i>Tomar Test</a></li>
                         </ul>
@@ -45,13 +46,85 @@
         </div>
     </header>
 
-    <!-- Test Container -->
-    <div class="container py-4 py-sm-5">
+    <!-- Main Content Wrapper -->
+    <main class="flex-grow-1">
+        <!-- Test Container -->
+        <div class="container py-4 py-sm-5">
         <div class="row justify-content-center">
             <div class="col-sm-11 col-lg-8">
                 
-                <!-- Progress Bar -->
-                <div class="mb-4">
+                <!-- Formulario de Datos del Estudiante -->
+                <div class="card shadow-sm mb-4" id="studentDataForm">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <h3 class="mb-3">Test de Orientación Vocacional</h3>
+                            <p class="text-muted">Antes de comenzar, necesitamos algunos datos para personalizar tu experiencia</p>
+                        </div>
+
+                        <form id="studentForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="studentName" class="form-label">
+                                        <i class="bi bi-person me-1"></i>Nombre del Alumno *
+                                    </label>
+                                    <input type="text" class="form-control" id="studentName" required 
+                                           placeholder="Escribe tu nombre completo">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="studentSchool" class="form-label">
+                                        <i class="bi bi-building me-1"></i>Escuela *
+                                    </label>
+                                    <input type="text" class="form-control" id="studentSchool" required 
+                                           placeholder="Nombre de tu institución">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="studentGroup" class="form-label">
+                                        <i class="bi bi-people-fill me-1"></i>Grupo *
+                                    </label>
+                                    <input type="text" class="form-control" id="studentGroup" required 
+                                           placeholder="Ej: 3°A, 5° semestre, etc.">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="studentEmail" class="form-label">
+                                        <i class="bi bi-envelope me-1"></i>Correo Electrónico *
+                                    </label>
+                                    <input type="email" class="form-control" id="studentEmail" required 
+                                           placeholder="tu.correo@ejemplo.com">
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="alert alert-light d-flex align-items-center">
+                                        <i class="bi bi-calendar-date me-2 text-primary"></i>
+                                        <div>
+                                            <strong>Fecha del test:</strong> 
+                                            <span id="currentDate"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">
+                                    <i class="bi bi-play-circle me-2"></i>Comenzar Test
+                                </button>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Todos los campos marcados con (*) son obligatorios. 
+                                    Tu información será utilizada únicamente para generar tu reporte personalizado.
+                                </small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Progress Bar (initially hidden) -->
+                <div class="mb-4" id="progressSection" style="display: none;">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h6 class="mb-0">Progreso del Test</h6>
                         <small class="text-muted">Pregunta <span id="currentQuestion">1</span> de <span id="totalQuestions">15</span></small>
@@ -61,8 +134,8 @@
                     </div>
                 </div>
 
-                <!-- Question Card -->
-                <div class="card shadow-sm mb-4" id="questionCard">
+                <!-- Question Card (initially hidden) -->
+                <div class="card shadow-sm mb-4" id="questionCard" style="display: none;">
                     <div class="card-body p-4">
                         <div class="mb-4">
                             <span class="badge bg-primary mb-2">Intereses Profesionales</span>
@@ -105,8 +178,8 @@
                     </div>
                 </div>
 
-                <!-- Navigation Buttons -->
-                <div class="d-flex justify-content-between">
+                <!-- Navigation Buttons (initially hidden) -->
+                <div class="d-flex justify-content-between" id="navigationButtons" style="display: none;">
                     <button class="btn btn-outline-secondary" id="prevBtn" disabled>
                         <i class="bi bi-arrow-left me-1"></i>Anterior
                     </button>
@@ -115,8 +188,8 @@
                     </button>
                 </div>
 
-                <!-- Test Instructions -->
-                <div class="alert alert-info mt-4">
+                <!-- Test Instructions (initially hidden) -->
+                <div class="alert alert-info mt-4" id="testInstructions" style="display: none;">
                     <div class="d-flex">
                         <i class="bi bi-info-circle me-2 mt-1"></i>
                         <div>
@@ -145,6 +218,40 @@
                     </h5>
                 </div>
                 <div class="modal-body p-4">
+                    <!-- Student Information Section -->
+                    <div class="card bg-light mb-4" id="studentInfo">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h6 class="card-title mb-2">
+                                        <i class="bi bi-person-badge me-2"></i>Información del Estudiante
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <small class="text-muted d-block">Nombre:</small>
+                                            <span id="displayName">-</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <small class="text-muted d-block">Escuela:</small>
+                                            <span id="displaySchool">-</span>
+                                        </div>
+                                        <div class="col-sm-6 mt-2">
+                                            <small class="text-muted d-block">Grupo:</small>
+                                            <span id="displayGroup">-</span>
+                                        </div>
+                                        <div class="col-sm-6 mt-2">
+                                            <small class="text-muted d-block">Fecha:</small>
+                                            <span id="displayDate">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <i class="bi bi-clipboard-data display-4 text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="text-center mb-4">
                         <div class="display-1 text-primary mb-3">🎯</div>
                         <h4>Tus Resultados Vocacionales</h4>
@@ -189,11 +296,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="alert alert-primary mt-4">
-                        <h6><i class="bi bi-lightbulb me-2"></i>Recomendación Principal:</h6>
-                        <p class="mb-0">Considera carreras en el área de <strong>Ciencias Sociales</strong>, especialmente aquellas que involucren trabajo directo con personas y desarrollo humano.</p>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" onclick="restartTest()">Repetir Test</button>
@@ -202,21 +304,16 @@
             </div>
         </div>
     </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer class="bg-dark text-white py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
                     <h6>CPD</h6>
-                    <p class="mb-0">© 2025 Orientación Vocacional Profesional</p>
-                </div>
-                <div class="col-sm-12 col-md-6 text-center text-md-end">
-                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-end gap-2 gap-sm-3">
-                        <a href="#" class="text-white text-decoration-none">Política de Privacidad</a>
-                        <a href="#" class="text-white text-decoration-none">Metodología</a>
-                        <a href="#" class="text-white text-decoration-none">Contacto</a>
-                    </div>
+                    <p class="mb-1">© 2025 Orientación Vocacional Profesional</p>
+                    <small class="text-muted">Basado en metodología científica para la orientación educativa</small>
                 </div>
             </div>
         </div>

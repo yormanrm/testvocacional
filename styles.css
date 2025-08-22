@@ -74,3 +74,25 @@ header .btn-outline-light:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: #fff;
 }
+
+/* Footer styles to eliminate bottom spacing */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
